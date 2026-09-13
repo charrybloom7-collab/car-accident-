@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#18263a">
+  <meta name="color-scheme" content="light">
+  <title>Car Accident Compensation Calculator | Estimate Your Potential Claim</title>
+  <meta name="description" content="Estimate potential car accident compensation using medical expenses, lost income, property damage, injury impact, pain and suffering, fault, and insurance coverage.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="http://caraccidentpayoutcalculator.com/">
+
+  <style>
+    :root{
+      --navy:#18263a;
+      --navy-2:#263d59;
+      --blue:#4a9ec5;
+      --blue-soft:#e5f3f8;
+      --lime:#b7d76b;
+      --lime-soft:#f2f8df;
+      --paper:#f5f5f1;
+      --white:#fff;
+      --ink:#17202a;
+      --text:#46515d;
+      --muted:#717b85;
+      --line:#dce2e6;
+      --danger:#b64e4e;
+      --shadow:0 20px 60px rgba(24,38,58,.12);
+      --shadow-sm:0 8px 24px rgba(24,38,58,.07);
+      --radius:28px;
+      --container:1240px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      font-size:16px;
+      line-height:1.78;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    img,svg{
+      max-width:100%;
+      height:auto;
+    }
+
+    img{
+      display:block;
+    }
+
+    a{
+      color:var(--navy-2);
+      font-weight:800;
+      text-underline-offset:3px;
+      text-decoration-thickness:1.5px;
+    }
+
+    button,input,select{
+      font:inherit;
+    }
+
+    button{
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .container{
+      width:min(var(--container),calc(100% - 40px));
+      margin-inline:auto;
+    }
+
+    /* HEADER */
+    .site-header{
+      position:relative;
+      z-index:30;
+      background:rgba(255,255,255,.96);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(12px);
+    }
+
+    .header-inner{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+      color:var(--ink);
+      text-decoration:none;
+    }
+
+    .brand-logo{
+      width:46px;
+      height:46px;
+      flex:0 0 auto;
+      border-radius:13px;
+      object-fit:cover;
+      box-shadow:var(--shadow-sm);
+    }
+
+    .brand-text{
+      min-width:0;
+      line-height:1.15;
+    }
+
+    .brand-title{
+      display:block;
+      font-size:14px;
+      font-weight:900;
+      letter-spacing:-.02em;
+    }
+
+    .brand-subtitle{
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+    }
+
+    .header-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid #d4e7ec;
+      border-radius:999px;
+      background:var(--blue-soft);
+      color:var(--navy-2);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .header-badge::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--lime);
+      box-shadow:0 0 0 4px rgba(183,215,107,.20);
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:var(--navy);
+      color:#fff;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(rgba(255,255,255,.027) 1px,transparent 1px);
+      background-size:44px 44px;
+      mask-image:linear-gradient(to bottom,#000,transparent 90%);
+      pointer-events:none;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
+      align-items:center;
+      gap:65px;
+      padding:78px 0 106px;
+    }
+
+    .hero-copy{
+      max-width:770px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:22px;
+      color:var(--lime);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.19em;
+      text-transform:uppercase;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:29px;
+      height:2px;
+      border-radius:4px;
+      background:var(--blue);
+    }
+
+    h1{
+      max-width:820px;
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(46px,6.2vw,82px);
+      line-height:.98;
+      letter-spacing:-.055em;
+      font-weight:700;
+    }
+
+    .hero-lead{
+      max-width:675px;
+      margin:28px 0 0;
+      color:#d9e4ed;
+      font-size:17px;
+    }
+
+    .hero-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-top:27px;
+    }
+
+    .hero-chip{
+      padding:8px 11px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      background:rgba(255,255,255,.045);
+      color:#dbe6ee;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    /* HERO VISUAL */
+    .hero-visual{
+      position:relative;
+      min-height:420px;
+      display:grid;
+      place-items:center;
+    }
+
+    .orbit{
+      position:absolute;
+      width:420px;
+      aspect-ratio:1;
+      border:1px solid rgba(255,255,255,.11);
+      border-radius:50%;
+    }
+
+    .orbit.two{
+      width:315px;
+      transform:rotate(25deg);
+      border-color:rgba(74,158,197,.30);
+    }
+
+    .orbit.three{
+      width:235px;
+      transform:rotate(-20deg);
+      border-color:rgba(183,215,107,.25);
+    }
+
+    .car-art{
+      position:relative;
+      z-index:2;
+      width:min(525px,100%);
+      filter:drop-shadow(0 26px 28px rgba(0,0,0,.28));
+    }
+
+    .visual-tag{
+      position:absolute;
+      z-index:4;
+      top:25px;
+      left:0;
+      padding:10px 12px;
+      border-radius:13px;
+      background:#fff;
+      color:var(--navy);
+      box-shadow:0 15px 30px rgba(0,0,0,.16);
+      font-size:9px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .visual-stat{
+      position:absolute;
+      z-index:4;
+      right:0;
+      bottom:17px;
+      width:175px;
+      padding:15px 17px;
+      border-radius:19px;
+      background:var(--lime);
+      color:var(--navy);
+      box-shadow:0 15px 30px rgba(0,0,0,.18);
+    }
+
+    .visual-stat small{
+      display:block;
+      font-size:9px;
+      font-weight:900;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      opacity:.78;
+    }
+
+    .visual-stat strong{
+      display:block;
+      margin-top:2px;
+      font-size:25px;
+      line-height:1;
+    }
+
+    /* MAIN */
+    .main{
+      position:relative;
+      z-index:5;
+      margin-top:-53px;
+      padding-bottom:85px;
+    }
+
+    .article{
+      overflow:hidden;
+      border:1px solid rgba(24,38,58,.08);
+      border-radius:30px;
+      background:var(--white);
+      box-shadow:var(--shadow);
+    }
+
+    .article-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:19px 34px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .article-label{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color:var(--navy-2);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+    }
+
+    .article-dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--lime);
+    }
+
+    .article-note{
+      color:var(--muted);
+      font-size:10px;
+      font-weight:800;
+    }
+
+    .content{
+      max-width:920px;
+      margin-inline:auto;
+      padding:48px 50px 80px;
+    }
+
+    .content p{
+      margin:0 0 24px;
+      color:var(--text);
+      font-size:17px;
+      line-height:1.82;
+    }
+
+    .content strong{
+      color:var(--ink);
+      font-weight:850;
+    }
+
+    .content h2{
+      margin:72px 0 25px;
+      padding-top:30px;
+      border-top:1px solid var(--line);
+      color:var(--navy);
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(31px,4vw,47px);
+      line-height:1.08;
+      letter-spacing:-.04em;
+    }
+
+    .content h2::after{
+      content:"";
+      display:block;
+      width:48px;
+      height:4px;
+      margin-top:17px;
+      border-radius:8px;
+      background:var(--blue);
+    }
+
+    .content h3{
+      margin:36px 0 13px;
+      color:var(--navy-2);
+      font-size:21px;
+      line-height:1.35;
+      font-weight:900;
+    }
+
+    .content h3::before{
+      content:"";
+      display:inline-block;
+      width:7px;
+      height:7px;
+      margin:-3px 10px 0 0;
+      vertical-align:middle;
+      border-radius:50%;
+      background:var(--lime);
+      box-shadow:0 0 0 5px var(--lime-soft);
+    }
+
+    .content ul,
+    .content ol{
+      margin:0 0 28px;
+      padding-left:27px;
+    }
+
+    .content li{
+      padding:5px 0;
+      color:#46535f;
+    }
+
+    .content li::marker{
+      color:var(--blue);
+      font-weight:900;
+    }
+
+    /* VISUAL INFORMATION STRIP */
+    .visual-strip{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      margin:42px 0 56px;
+      padding:15px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:#eef3f5;
+    }
+
+    .visual-card{
+      min-width:0;
+      padding:17px 10px;
+      border-radius:17px;
+      text-align:center;
+      transition:transform .2s ease,background .2s ease,box-shadow .2s ease;
+    }
+
+    .visual-card:hover{
+      transform:translateY(-3px);
+      background:#fff;
+      box-shadow:var(--shadow-sm);
+    }
+
+    .visual-icon{
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      margin:0 auto 10px;
+      border:1px solid var(--line);
+      border-radius:13px;
+      background:#fff;
+      color:var(--navy);
+      box-shadow:0 6px 18px rgba(24,38,58,.06);
+      font-size:19px;
+      font-weight:900;
+    }
+
+    .visual-card strong{
+      display:block;
+      font-size:10px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .visual-card span{
+      display:block;
+      margin-top:3px;
+      color:var(--muted);
+      font-size:10px;
+      line-height:1.4;
+    }
+
+    /* CALCULATOR */
+    .calculator{
+      margin:0 0 65px;
+      overflow:hidden;
+      border:1px solid #cadce3;
+      border-radius:27px;
+      background:linear-gradient(145deg,#f7fbfc,#fff);
+      box-shadow:0 20px 55px rgba(24,38,58,.09);
+    }
+
+    .calculator-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+      padding:26px 30px;
+      background:var(--navy);
+      color:#fff;
+    }
+
+    .calculator-kicker{
+      color:var(--lime);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .calculator-title{
+      margin:5px 0 0;
+      color:#fff;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:31px;
+      line-height:1.12;
+      letter-spacing:-.025em;
+    }
+
+    .calculator-desc{
+      margin:6px 0 0;
+      color:#cfdae4;
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .calculator-icon{
+      width:50px;
+      height:50px;
+      flex:0 0 auto;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      background:var(--lime);
+      color:var(--navy);
+      font-size:21px;
+      font-weight:900;
+    }
+
+    .calculator-body{
+      padding:28px;
+    }
+
+    .calc-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:17px;
+    }
+
+    .field{
+      min-width:0;
+    }
+
+    .field.full{
+      grid-column:1/-1;
+    }
+
+    .field label{
+      display:block;
+      margin-bottom:7px;
+      color:var(--navy-2);
+      font-size:11px;
+      font-weight:900;
+    }
+
+    .field input,
+    .field select{
+      display:block;
+      width:100%;
+      min-height:48px;
+      padding:11px 13px;
+      border:1px solid #ccd7de;
+      border-radius:12px;
+      background:#fff;
+      color:var(--ink);
+      outline:none;
+      transition:border-color .18s ease,box-shadow .18s ease;
+    }
+
+    .field input::placeholder{
+      color:#a2abb2;
+    }
+
+    .field input:focus,
+    .field select:focus{
+      border-color:var(--blue);
+      box-shadow:0 0 0 4px rgba(74,158,197,.13);
+    }
+
+    .field-help{
+      margin-top:5px;
+      color:var(--muted);
+      font-size:10px;
+      line-height:1.45;
+    }
+
+    .calc-actions{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:10px;
+      margin-top:19px;
+    }
+
+    .calculate-btn,
+    .reset-btn{
+      min-height:50px;
+      border:0;
+      border-radius:13px;
+      cursor:pointer;
+      transition:transform .18s ease,background .18s ease;
+    }
+
+    .calculate-btn{
+      background:var(--navy);
+      color:#fff;
+      font-weight:900;
+    }
+
+    .calculate-btn:hover{
+      transform:translateY(-2px);
+      background:var(--navy-2);
+    }
+
+    .reset-btn{
+      padding:0 19px;
+      background:var(--blue-soft);
+      color:var(--navy-2);
+      font-weight:900;
+    }
+
+    .reset-btn:hover{
+      background:#d8ebf1;
+    }
+
+    .result{
+      display:none;
+      margin-top:17px;
+      padding:20px;
+      border:1px solid #d7e6b6;
+      border-radius:16px;
+      background:var(--lime-soft);
+    }
+
+    .result.visible{
+      display:block;
+      animation:resultIn .25s ease;
+    }
+
+    @keyframes resultIn{
+      from{
+        opacity:0;
+        transform:translateY(7px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .result-label{
+      color:var(--muted);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .result-value{
+      margin:3px 0 4px;
+      color:var(--navy);
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:33px;
+      line-height:1.1;
+      font-weight:800;
+    }
+
+    .result-breakdown{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:8px;
+      margin-top:13px;
+    }
+
+    .result-mini{
+      padding:10px;
+      border:1px solid rgba(24,38,58,.07);
+      border-radius:11px;
+      background:rgba(255,255,255,.72);
+    }
+
+    .result-mini span{
+      display:block;
+      color:var(--muted);
+      font-size:9px;
+      font-weight:800;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    .result-mini strong{
+      display:block;
+      margin-top:2px;
+      color:var(--navy);
+      font-size:13px;
+    }
+
+    .result-note{
+      margin-top:11px;
+      color:var(--muted);
+      font-size:11px;
+      line-height:1.55;
+    }
+
+    .calc-disclaimer{
+      margin-top:16px;
+      padding:14px 15px;
+      border-radius:13px;
+      background:#eef2f4;
+      color:var(--muted);
+      font-size:11px;
+      line-height:1.62;
+    }
+
+    /* FORMULA */
+    .formula{
+      margin:30px 0;
+      padding:22px 23px;
+      border-left:5px solid var(--blue);
+      border-radius:0 17px 17px 0;
+      background:var(--blue-soft);
+      color:var(--navy);
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:20px;
+      line-height:1.5;
+    }
+
+    /* CALLOUT */
+    .callout{
+      position:relative;
+      overflow:hidden;
+      margin:34px 0;
+      padding:25px 27px;
+      border-radius:21px;
+      background:var(--navy);
+      color:#e3ebf1;
+    }
+
+    .callout::before{
+      content:"";
+      position:absolute;
+      top:-66px;
+      right:-68px;
+      width:150px;
+      height:150px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:50%;
+    }
+
+    .callout strong{
+      color:var(--lime);
+    }
+
+    /* FAQ */
+    .faq{
+      margin-top:12px;
+    }
+
+    .faq h3{
+      margin:0;
+      padding:17px 0;
+      border-bottom:1px solid var(--line);
+      color:var(--navy);
+    }
+
+    .faq h3::before{
+      display:none;
+    }
+
+    /* FINAL */
+    .final-box{
+      margin-top:42px;
+      padding:29px;
+      border:1px solid #d0e2bd;
+      border-radius:23px;
+      background:linear-gradient(135deg,#f4f8e8,#edf5e8);
+    }
+
+    .final-box p:last-child{
+      margin-bottom:0;
+    }
+
+    :focus-visible{
+      outline:3px solid rgba(74,158,197,.55);
+      outline-offset:3px;
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{
+        scroll-behavior:auto;
+      }
+
+      *,
+      *::before,
+      *::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+      }
+    }
+
+    /* TABLET */
+    @media(max-width:960px){
+      .hero-inner{
+        grid-template-columns:1fr;
+        gap:36px;
+        padding-top:58px;
+      }
+
+      .hero-visual{
+        width:100%;
+        max-width:650px;
+        margin-inline:auto;
+        min-height:360px;
+      }
+
+      .main{
+        margin-top:-32px;
+      }
+    }
+
+    /* MOBILE */
+    @media(max-width:680px){
+      .container{
+        width:min(var(--container),calc(100% - 24px));
+      }
+
+      .header-inner{
+        min-height:68px;
+      }
+
+      .header-badge,
+      .brand-subtitle{
+        display:none;
+      }
+
+      .brand-logo{
+        width:42px;
+        height:42px;
+      }
+
+      .brand-title{
+        font-size:13px;
+      }
+
+      .hero-inner{
+        padding:43px 0 68px;
+      }
+
+      h1{
+        font-size:clamp(42px,12.8vw,62px);
+      }
+
+      .hero-lead{
+        font-size:15px;
+      }
+
+      .hero-visual{
+        min-height:270px;
+      }
+
+      .orbit{
+        width:290px;
+      }
+
+      .orbit.two{
+        width:220px;
+      }
+
+      .orbit.three{
+        width:170px;
+      }
+
+      .visual-tag{
+        top:9px;
+        left:2px;
+        padding:8px 10px;
+        font-size:8px;
+      }
+
+      .visual-stat{
+        right:2px;
+        bottom:0;
+        width:145px;
+        padding:12px 13px;
+      }
+
+      .visual-stat strong{
+        font-size:22px;
+      }
+
+      .main{
+        margin-top:-24px;
+        padding-bottom:55px;
+      }
+
+      .article{
+        border-radius:22px;
+      }
+
+      .article-top{
+        padding:16px 18px;
+      }
+
+      .article-note{
+        display:none;
+      }
+
+      .content{
+        padding:27px 19px 47px;
+      }
+
+      .content p{
+        font-size:16px;
+        line-height:1.76;
+      }
+
+      .content h2{
+        margin-top:54px;
+        font-size:32px;
+      }
+
+      .content h3{
+        font-size:19px;
+      }
+
+      .visual-strip{
+        grid-template-columns:repeat(2,1fr);
+        margin-inline:-2px;
+        padding:11px;
+      }
+
+      .visual-card{
+        padding:14px 8px;
+      }
+
+      .calculator{
+        margin-inline:-3px;
+        border-radius:21px;
+      }
+
+      .calculator-header{
+        padding:22px 19px;
+      }
+
+      .calculator-title{
+        font-size:27px;
+      }
+
+      .calculator-body{
+        padding:18px;
+      }
+
+      .calc-grid{
+        grid-template-columns:1fr;
+      }
+
+      .field.full{
+        grid-column:auto;
+      }
+
+      .calc-actions{
+        grid-template-columns:1fr;
+      }
+
+      .reset-btn{
+        min-height:46px;
+      }
+
+      .result-breakdown{
+        grid-template-columns:1fr;
+      }
+
+      .formula{
+        padding:19px 18px;
+        font-size:18px;
+      }
+
+      .callout,
+      .final-box{
+        padding:22px 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a class="brand" href="http://caraccidentpayoutcalculator.com/" aria-label="Car Accident Payout Calculator">
+        <img
+          class="brand-logo"
+          src="https://caraccidentpayoutcalculator.com/wp-content/uploads/2026/05/Car-accident-payout-calculator-Logo-150x150.png"
+          alt="Car Accident Payout Calculator logo"
+          width="150"
+          height="150"
+          loading="eager"
+          decoding="async"
+        >
+
+        <span class="brand-text">
+          <span class="brand-title">Car Accident Compensation</span>
+          <span class="brand-subtitle">Claim estimate resource</span>
+        </span>
+      </a>
+
+      <div class="header-badge">Compensation guide</div>
+
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="page-title">
+
+    <div class="container hero-inner">
+
+      <div class="hero-copy">
+
+        <div class="eyebrow">Claim value explained</div>
+
+        <h1 id="page-title">Car Accident Compensation Calculator</h1>
+
+        <p class="hero-lead">
+          A practical way to organize medical costs, lost income, vehicle damage, injury impact, fault, and insurance information into an illustrative compensation range.
+        </p>
+
+        <div class="hero-chips">
+          <span class="hero-chip">Medical costs</span>
+          <span class="hero-chip">Lost income</span>
+          <span class="hero-chip">Property damage</span>
+          <span class="hero-chip">Injury impact</span>
+          <span class="hero-chip">Fault</span>
+        </div>
+
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+
+        <div class="orbit"></div>
+        <div class="orbit two"></div>
+        <div class="orbit three"></div>
+
+        <div class="visual-tag">Estimate multiple factors</div>
+
+        <svg class="car-art" viewBox="0 0 700 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Car accident assessment illustration">
+
+          <defs>
+            <linearGradient id="vehicleBody" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset="1" stop-color="#dae7ee"/>
+            </linearGradient>
+
+            <linearGradient id="vehicleGlass" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#e3f4f8"/>
+              <stop offset="1" stop-color="#94c7d8"/>
+            </linearGradient>
+          </defs>
+
+          <ellipse cx="350" cy="314" rx="235" ry="28" fill="rgba(0,0,0,.20)"/>
+
+          <path
+            d="M108 278
+               L136 214
+               Q147 187 179 178
+               L390 150
+               Q424 146 449 164
+               L523 218
+               L570 228
+               Q594 234 601 256
+               L606 279
+               L108 279Z"
+            fill="url(#vehicleBody)"
+          />
+
+          <path
+            d="M154 214
+               L186 181
+               Q197 170 218 167
+               L377 148
+               Q404 145 423 161
+               L463 210Z"
+            fill="url(#vehicleGlass)"
+          />
+
+          <path
+            d="M265 161L242 210"
+            stroke="#fff"
+            stroke-width="6"
+            opacity=".75"
+          />
+
+          <path
+            d="M383 151L414 209"
+            stroke="#fff"
+            stroke-width="6"
+            opacity=".75"
+          />
+
+          <path
+            d="M110 234L514 234"
+            stroke="#18263a"
+            stroke-width="7"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M115 247L194 247"
+            stroke="#b7d76b"
+            stroke-width="8"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M484 247L564 247"
+            stroke="#b7d76b"
+            stroke-width="8"
+            stroke-linecap="round"
+          />
+
+          <circle cx="191" cy="281" r="51" fill="#18263a"/>
+          <circle cx="191" cy="281" r="24" fill="#e7edf0"/>
+
+          <circle cx="508" cy="281" r="51" fill="#18263a"/>
+          <circle cx="508" cy="281" r="24" fill="#e7edf0"/>
+
+          <path
+            d="M548 226L598 241L580 259L545 250Z"
+            fill="#b7d76b"
+          />
+
+          <path
+            d="M107 245L73 220"
+            stroke="#fff"
+            stroke-width="12"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M592 250L628 226"
+            stroke="#fff"
+            stroke-width="12"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M148 218L112 195"
+            stroke="#4a9ec5"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M144 230L103 226"
+            stroke="#4a9ec5"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M159 238L126 255"
+            stroke="#4a9ec5"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+
+          <circle cx="123" cy="198" r="5" fill="#b7d76b"/>
+          <circle cx="105" cy="227" r="5" fill="#b7d76b"/>
+          <circle cx="128" cy="255" r="5" fill="#b7d76b"/>
+
+        </svg>
+
+        <div class="visual-stat">
+          <small>Potential range</small>
+          <strong>$ — $</strong>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <main class="container main">
+
+    <article class="article">
+
+      <div class="article-top">
+
+        <div class="article-label">
+          <span class="article-dot"></span>
+          Car accident compensation
+        </div>
+
+        <div class="article-note">
+          Educational estimate · Not legal advice
+        </div>
+
+      </div>
+
+      <div class="content">
+
+        <!-- WORKING CALCULATOR -->
+        <section class="calculator" aria-labelledby="calculator-title">
+
+          <div class="calculator-header">
+
+            <div>
+              <div class="calculator-kicker">Interactive estimate</div>
+
+              <h2 class="calculator-title" id="calculator-title">
+                Estimate Your Potential Compensation
+              </h2>
+
+              <p class="calculator-desc">
+                Enter the information you currently know. Unknown amounts can be left blank.
+              </p>
+            </div>
+
+            <div class="calculator-icon" aria-hidden="true">＄</div>
+
+          </div>
+
+          <div class="calculator-body">
+
+            <div class="calc-grid">
+
+              <div class="field">
+                <label for="medical">Current medical expenses</label>
+                <input
+                  id="medical"
+                  type="number"
+                  min="0"
+                  step="100"
+                  inputmode="decimal"
+                  placeholder="0"
+                >
+                <div class="field-help">Treatment already received after the accident.</div>
+              </div>
+
+              <div class="field">
+                <label for="futureMedical">Estimated future medical expenses</label>
+                <input
+                  id="futureMedical"
+                  type="number"
+                  min="0"
+                  step="100"
+                  inputmode="decimal"
+                  placeholder="0"
+                >
+                <div class="field-help">Use a supported estimate when available.</div>
+              </div>
+
+              <div class="field">
+                <label for="lostWages">Lost wages / income</label>
+                <input
+                  id="lostWages"
+                  type="number"
+                  min="0"
+                  step="100"
+                  inputmode="decimal"
+                  placeholder="0"
+                >
+              </div>
+
+              <div class="field">
+                <label for="futureIncome">Future income loss</label>
+                <input
+                  id="futureIncome"
+                  type="number"
+                  min="0"
+                  step="100"
+                  inputmode="decimal"
+                  placeholder="0"
+                >
+              </div>
+
+              <div class="field">
+                <label for="property">Vehicle / property damage</label>
+                <input
+                  id="property"
+                  type="number"
+                  min="0"
+                  step="100"
+                  inputmode="decimal"
+                  placeholder="0"
+                >
+              </div>
+
+              <div class="field">
+                <label for="fault">Estimated percentage of fault</label>
+                <input
+                  id="fault"
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="1"
+                  inputmode="numeric"
+                  placeholder="0"
+                >
+              </div>
+
+              <div class="field">
+                <label for="injury">Overall injury impact</label>
+
+                <select id="injury">
+                  <option value="1">Limited / short recovery</option>
+                  <option value="1.3">Moderate</option>
+                  <option value="1.7">Serious</option>
+                  <option value="2.1">Severe / long-term</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="pain">Pain &amp; suffering impact</label>
+
+                <select id="pain">
+                  <option value=".35">Lower impact</option>
+                  <option value=".60">Moderate impact</option>
+                  <option value=".90">Significant impact</option>
+                  <option value="1.25">Severe impact</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="coverage">Available insurance coverage, if known</label>
+
+                <input
+                  id="coverage"
+                  type="number"
+                  min="0"
+                  step="1000"
+                  inputmode="decimal"
+                  placeholder="Leave blank if unknown"
+                >
+              </div>
+
+            </div>
+
+            <div class="calc-actions">
+
+              <button
+                class="calculate-btn"
+                type="button"
+                id="calculateBtn"
+              >
+                Calculate Potential Range
+              </button>
+
+              <button
+                class="reset-btn"
+                type="button"
+                id="resetBtn"
+              >
+                Reset
+              </button>
+
+            </div>
+
+            <div
+              class="result"
+              id="result"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+
+              <div class="result-label">
+                Illustrative compensation range
+              </div>
+
+              <div class="result-value" id="resultValue">
+                $0 – $0
+              </div>
+
+              <div class="result-breakdown">
+
+                <div class="result-mini">
+                  <span>Economic losses</span>
+                  <strong id="economicValue">$0</strong>
+                </div>
+
+                <div class="result-mini">
+                  <span>Fault reduction</span>
+                  <strong id="faultValue">0%</strong>
+                </div>
+
+                <div class="result-mini">
+                  <span>Coverage cap</span>
+                  <strong id="coverageValue">None</strong>
+                </div>
+
+              </div>
+
+              <div class="result-note">
+                This estimate is based only on the information entered. It is not a guaranteed settlement, legal valuation, or determination of responsibility.
+              </div>
+
+            </div>
+
+            <div class="calc-disclaimer">
+              This calculator uses a simplified educational model. It does not independently verify medical records, determine legal fault, interpret state law, evaluate insurance policy language, or predict what an insurer, court, jury, or other decision-maker will ultimately pay.
+            </div>
+
+          </div>
+        </section>
+
+        <p>
+          If you have been involved in a car accident, understanding possible compensation can be difficult. Bills may arrive at different times, income may be lost while you recover, and the effect of an injury may continue long after the vehicle has been repaired.
+        </p>
+
+        <p>
+          A <a href="http://caraccidentpayoutcalculator.com/">car accident compensation calculator</a> can help organize those different pieces into one practical estimate. The goal is not to produce a guaranteed settlement figure. Instead, it gives you a structured way to look at the costs and consequences connected with the accident.
+        </p>
+
+        <p>
+          A useful estimate should consider more than the emergency-room bill. Medical care, missed work, future treatment, property damage, injury severity, pain, recovery time, responsibility for the crash, and insurance coverage can all change the picture.
+        </p>
+
+        <div class="visual-strip" aria-label="Main compensation factors">
+
+          <div class="visual-card">
+            <div class="visual-icon" aria-hidden="true">✚</div>
+            <strong>Medical</strong>
+            <span>Current &amp; future care</span>
+          </div>
+
+          <div class="visual-card">
+            <div class="visual-icon" aria-hidden="true">↗</div>
+            <strong>Income</strong>
+            <span>Wages &amp; earning loss</span>
+          </div>
+
+          <div class="visual-card">
+            <div class="visual-icon" aria-hidden="true">▣</div>
+            <strong>Damage</strong>
+            <span>Car &amp; property costs</span>
+          </div>
+
+          <div class="visual-card">
+            <div class="visual-icon" aria-hidden="true">%</div>
+            <strong>Liability</strong>
+            <span>Potential fault effect</span>
+          </div>
+
+        </div>
+
+        <h2>What Does Car Accident Compensation Include?</h2>
+
+        <p>
+          Compensation is not always one single category of money. A claim can involve several different types of loss, and some are easier to document than others.
+        </p>
+
+        <p>Financial losses can include:</p>
+
+        <ul>
+          <li>Medical treatment already received</li>
+          <li>Reasonably supported future treatment</li>
+          <li>Lost wages</li>
+          <li>Reduced future earning ability</li>
+          <li>Vehicle repair or replacement costs</li>
+          <li>Towing and related transportation expenses</li>
+          <li>Other accident-related financial losses</li>
+        </ul>
+
+        <p>
+          There may also be losses connected with the human impact of the injury, such as physical discomfort, emotional distress, disruption to normal activities, and longer-term limitations.
+        </p>
+
+        <p>
+          That distinction explains why two accidents with similar vehicle damage can produce very different compensation estimates.
+        </p>
+
+        <h2>How Is a Car Accident Compensation Estimate Calculated?</h2>
+
+        <p>
+          There is no single calculation that accurately predicts every accident claim. An online tool usually works by combining documented economic losses with an illustrative adjustment for injury-related impact.
+        </p>
+
+        <div class="formula">
+          <strong>Illustrative estimate = financial losses + injury-related losses − applicable reductions</strong>
+        </div>
+
+        <p>
+          The figures used in a calculator should therefore be viewed as inputs for an estimate rather than proof of a final claim value.
+        </p>
+
+        <p>
+          For example, a person with modest treatment, a short recovery, and no meaningful income interruption may have a very different estimate from someone facing surgery, extended rehabilitation, substantial lost income, or lasting restrictions.
+        </p>
+
+        <h2>Why Medical Expenses Are Important</h2>
+
+        <p>
+          Medical costs are often among the clearest parts of an accident claim because bills, statements, treatment records, and other documentation can provide a financial record.
+        </p>
+
+        <p>Depending on the circumstances, medical losses may include:</p>
+
+        <ul>
+          <li>Emergency treatment</li>
+          <li>Ambulance transportation</li>
+          <li>Hospital care</li>
+          <li>Doctor visits</li>
+          <li>Diagnostic imaging</li>
+          <li>Physical therapy</li>
+          <li>Prescription medication</li>
+          <li>Rehabilitation</li>
+          <li>Surgery</li>
+          <li>Medical equipment</li>
+        </ul>
+
+        <p>
+          Future medical expenses can be harder to estimate. A documented recommendation for additional treatment is generally more useful to an estimate than an unsupported guess.
+        </p>
+
+        <h2>How Lost Wages Affect Compensation</h2>
+
+        <p>
+          An accident can create financial pressure even when treatment costs are manageable. Missing work because of an injury may reduce the income available for rent, bills, transportation, and daily expenses.
+        </p>
+
+        <p>
+          Lost income may include salary, hourly earnings, commissions, bonuses, or qualifying self-employment income, depending on the circumstances.
+        </p>
+
+        <p>A simple example is:</p>
+
+        <div class="formula">
+          <strong>$250 daily income × 12 missed working days = $3,000 in lost income</strong>
+        </div>
+
+        <p>
+          Future income loss is more complicated. An injury that changes the type of work a person can perform or limits working hours can have a much longer financial effect than a short absence.
+        </p>
+
+        <h2>Vehicle Damage and Total Loss</h2>
+
+        <p>
+          Property damage should be considered separately from personal injury losses. A damaged vehicle may produce repair costs, towing charges, storage expenses, rental transportation needs, or a total-loss valuation.
+        </p>
+
+        <p>
+          When a vehicle is declared a total loss, factors such as its age, mileage, condition before the accident, equipment, comparable vehicles, and applicable policy terms may affect the valuation.
+        </p>
+
+        <p>
+          The original purchase price of a vehicle is not necessarily the same as the amount used to determine an insurance valuation after a crash.
+        </p>
+
+        <h2>Pain and Suffering in a Compensation Estimate</h2>
+
+        <p>
+          Pain and suffering is different from a medical bill because there may not be one invoice that measures it.
+        </p>
+
+        <p>
+          An evaluation may consider the nature of the injury, its duration, treatment, effect on everyday activities, emotional impact, and whether meaningful limitations remain.
+        </p>
+
+        <p>
+          For example, temporary discomfort that resolves after a short recovery can have a very different impact from an <a href="https://charrybloom7-collab.github.io/caraccident/">injury that produces continuing pain</a>, restricted movement, or significant changes to daily life.
+        </p>
+
+        <div class="callout">
+          <strong>Important:</strong> A pain-and-suffering figure produced by an online calculator should be treated as an illustration, not as an established value for an individual claim.
+        </div>
+
+        <h2>How Can Fault Change the Estimate?</h2>
+
+        <p>
+          Responsibility for an accident can affect the amount that may ultimately be recoverable in some situations, but the exact rules depend on the law that applies to the accident.
+        </p>
+
+        <p>
+          For illustration, imagine documented and estimated losses of $80,000 and an assumed 20% responsibility for the injured person:
+        </p>
+
+        <div class="formula">
+          <strong>$80,000 × 80% = $64,000</strong>
+        </div>
+
+        <p>
+          This example is only mathematical. An online calculator cannot determine who is legally responsible or which fault rules a particular jurisdiction will apply.
+        </p>
+
+        <h2>Why Insurance Coverage Matters</h2>
+
+        <p>
+          A compensation estimate and the amount of insurance available are not always the same thing.
+        </p>
+
+        <p>
+          A claim can involve substantial losses while the available liability coverage is limited. In some circumstances, other insurance provisions may also become relevant, depending on the policy and applicable law.
+        </p>
+
+        <p>Potential coverage categories can include:</p>
+
+        <ul>
+          <li>Liability coverage</li>
+          <li>Uninsured motorist coverage</li>
+          <li>Underinsured motorist coverage</li>
+          <li>Medical payments coverage</li>
+          <li>Personal injury protection where applicable</li>
+        </ul>
+
+        <p>
+          Because policy language and state rules differ, the number entered into an insurance field should never be treated as a guarantee of available recovery.
+        </p>
+
+        <h2>Common Injury Categories People Ask About</h2>
+
+        <p>
+          A compensation calculator can be used as a general starting point for many injury situations. Search interest commonly includes whiplash, back injuries, fractures, facial injuries, nerve damage, and more serious injuries.
+        </p>
+
+        <p>
+          For example, a whiplash injury can vary significantly in severity. Some people recover relatively quickly, while others experience longer-lasting symptoms and require continuing treatment.
+        </p>
+
+        <p>
+          Similarly, a lower-back injury, herniated disc, fractured wrist, broken ankle, spinal injury, or facial scar can have different financial and personal consequences depending on the treatment required and the resulting limitations.
+        </p>
+
+        <p>
+          The key point is that an injury label by itself does not establish one universal compensation amount.
+        </p>
+
+        <h2>Rear-End Accident Compensation</h2>
+
+        <p>
+          Rear-end crashes are frequently associated with questions about whiplash, neck pain, back injuries, and vehicle damage.
+        </p>
+
+        <p>
+          There is no reliable universal rear-end settlement figure because the circumstances can range from a minor collision with a short recovery to a serious crash involving surgery, significant income loss, or permanent impairment.
+        </p>
+
+        <p>
+          A useful estimate should therefore look at the actual losses rather than relying only on an average rear-end settlement amount found online.
+        </p>
+
+        <h2>Serious or Permanent Injuries</h2>
+
+        <p>
+          Serious injuries can introduce factors that are difficult for a simple online tool to measure.
+        </p>
+
+        <p>These may include:</p>
+
+        <ul>
+          <li>Long-term medical treatment</li>
+          <li>Permanent mobility restrictions</li>
+          <li>Loss of earning ability</li>
+          <li>Chronic pain</li>
+          <li>Scarring or disfigurement</li>
+          <li>Loss of independence</li>
+          <li>Significant changes to everyday activities</li>
+        </ul>
+
+        <p>
+          Future losses can become especially important when an injury affects someone's ability to work or creates continuing care requirements.
+        </p>
+
+        <h2>What Information Should You Gather?</h2>
+
+        <p>
+          A calculator becomes more useful when the figures entered into it are supported by records.
+        </p>
+
+        <h3>Accident records</h3>
+
+        <ul>
+          <li>Police report</li>
+          <li>Accident photographs</li>
+          <li>Dashcam footage</li>
+          <li>Witness information</li>
+          <li>Vehicle damage photographs</li>
+          <li>Available traffic-camera evidence</li>
+        </ul>
+
+        <h3>Medical records</h3>
+
+        <ul>
+          <li>Emergency records</li>
+          <li>Doctor notes</li>
+          <li>Imaging results</li>
+          <li>Treatment records</li>
+          <li>Therapy records</li>
+          <li>Prescription information</li>
+          <li>Specialist recommendations</li>
+        </ul>
+
+        <h3>Financial records</h3>
+
+        <ul>
+          <li>Pay stubs</li>
+          <li>Employer records</li>
+          <li>Medical bills</li>
+          <li>Repair estimates</li>
+          <li>Receipts</li>
+          <li>Other documented accident-related expenses</li>
+        </ul>
+
+        <p>
+          Keeping these records organized can make the numbers entered into an estimate easier to understand and verify.
+        </p>
+
+        <h2>Why Compensation Calculators Give Ranges</h2>
+
+        <p>
+          Real-world claims contain uncertainty. Future treatment may change, evidence may develop, responsibility may be disputed, and different losses may be interpreted differently.
+        </p>
+
+        <p>
+          That is why a range is generally more useful than an artificial single-number prediction.
+        </p>
+
+        <p>
+          A lower estimate can represent a more conservative scenario, while a higher estimate can reflect a greater injury impact or additional documented losses. Neither number is a promise of what will happen.
+        </p>
+
+        <h2>What a Calculator Cannot Tell You</h2>
+
+        <p>
+          An online compensation calculator cannot independently verify medical records, investigate an accident, interview witnesses, interpret every insurance provision, determine legal responsibility, or predict how a specific dispute will be resolved.
+        </p>
+
+        <p>
+          It also cannot know whether an injury will fully resolve, what future care will ultimately cost, or how a particular claim will be negotiated.
+        </p>
+
+        <p>
+          That makes an online calculator most useful as an organization and planning tool rather than a substitute for individualized advice.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq">
+
+          <h3>What is a car accident compensation calculator?</h3>
+
+          <p>
+            It is an online tool that combines information about financial losses and injury-related factors to produce an illustrative compensation estimate.
+          </p>
+
+          <h3>How is car accident compensation calculated?</h3>
+
+          <p>
+            A simplified estimate may combine documented financial losses with an illustrative amount for injury-related impact and then account for applicable reductions. Actual claim evaluation can be much more complex.
+          </p>
+
+          <h3>Can I calculate compensation for whiplash?</h3>
+
+          <p>
+            You can create an estimate using treatment costs, lost income, recovery time, symptoms, and other relevant information. There is no single guaranteed amount for every whiplash claim.
+          </p>
+
+          <h3>Does a rear-end accident have a standard compensation amount?</h3>
+
+          <p>
+            No. A rear-end accident can involve anything from minor vehicle damage and short-term symptoms to serious injuries and substantial long-term losses.
+          </p>
+
+          <h3>Can future medical expenses be included?</h3>
+
+          <p>
+            They can potentially be considered when there is credible information supporting the need for future treatment and its expected cost.
+          </p>
+
+          <h3>Does lost income count toward compensation?</h3>
+
+          <p>
+            Lost wages can be an important part of documented accident-related losses. Future earning impacts may also be relevant depending on the circumstances.
+          </p>
+
+          <h3>Does being partly responsible affect compensation?</h3>
+
+          <p>
+            It can in jurisdictions where applicable rules reduce recovery based on responsibility. The exact effect depends on the law governing the accident.
+          </p>
+
+          <h3>Does insurance coverage limit compensation?</h3>
+
+          <p>
+            Available coverage can be an important practical consideration because an insurance policy may have specific limits and conditions.
+          </p>
+
+          <h3>Can an online calculator predict my final settlement?</h3>
+
+          <p>
+            No. The calculator provides an illustrative estimate using the information entered. It cannot predict the final outcome of an individual claim.
+          </p>
+
+          <h3>Should I keep documentation after an accident?</h3>
+
+          <p>
+            Yes. Medical records, accident evidence, financial records, repair information, and insurance documents can help establish the information used when evaluating a claim.
+          </p>
+
+        </div>
+
+        <h2>Final Takeaway</h2>
+
+        <div class="final-box">
+
+          <p>
+            A car accident compensation calculator can make a complicated situation easier to understand by organizing the major financial and injury-related factors in one place.
+          </p>
+
+          <p>
+            Start with information you can document. Include medical expenses, future treatment, lost income, property damage, injury impact, pain and suffering considerations, estimated fault, and known insurance coverage.
+          </p>
+
+          <p>
+            Most importantly, treat the result as an educational estimate rather than a promise. The quality of the underlying records, the circumstances of the accident, applicable insurance terms, and the law governing the claim can all affect the eventual outcome.
+          </p>
+
+          <p>
+            <strong>Disclaimer:</strong> This calculator provides general educational information and an illustrative estimate. It is not legal advice and does not guarantee the amount an insurance company, opposing party, court, or other decision-maker will pay. Laws, insurance policies, evidence, and individual circumstances can substantially affect the outcome of a claim.
+          </p>
+
+        </div>
+
+      </div>
+    </article>
+
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const $ = (id) => document.getElementById(id);
+
+      const fields = {
+        medical: $("medical"),
+        futureMedical: $("futureMedical"),
+        lostWages: $("lostWages"),
+        futureIncome: $("futureIncome"),
+        property: $("property"),
+        fault: $("fault"),
+        injury: $("injury"),
+        pain: $("pain"),
+        coverage: $("coverage")
+      };
+
+      const output = {
+        box: $("result"),
+        range: $("resultValue"),
+        economic: $("economicValue"),
+        fault: $("faultValue"),
+        coverage: $("coverageValue")
+      };
+
+      const calculateBtn = $("calculateBtn");
+      const resetBtn = $("resetBtn");
+
+      function getAmount(field){
+        const value = Number.parseFloat(field.value);
+
+        return Number.isFinite(value) && value > 0
+          ? value
+          : 0;
+      }
+
+      function getFault(){
+        const value = Number.parseFloat(fields.fault.value);
+
+        if(!Number.isFinite(value)){
+          return 0;
+        }
+
+        return Math.min(100,Math.max(0,value));
+      }
+
+      function formatCurrency(value){
+        return new Intl.NumberFormat("en-US",{
+          style:"currency",
+          currency:"USD",
+          maximumFractionDigits:0
+        }).format(Math.round(value));
+      }
+
+      function calculate(){
+
+        const medical = getAmount(fields.medical);
+        const futureMedical = getAmount(fields.futureMedical);
+        const lostWages = getAmount(fields.lostWages);
+        const futureIncome = getAmount(fields.futureIncome);
+        const property = getAmount(fields.property);
+
+        const fault = getFault();
+
+        const injuryFactor =
+          Number(fields.injury.value) || 1;
+
+        const painFactor =
+          Number(fields.pain.value) || .35;
+
+        const coverage =
+          getAmount(fields.coverage);
+
+        const economic =
+          medical +
+          futureMedical +
+          lostWages +
+          futureIncome +
+          property;
+
+        if(economic <= 0){
+
+          output.box.classList.remove("visible");
+
+          fields.medical.focus();
+
+          return;
+        }
+
+        /*
+          This is intentionally an educational estimate,
+          not a legal settlement formula.
+
+          Economic losses form the base.
+          Injury and pain factors create a broad illustrative range.
+          Estimated fault reduces that range mathematically.
+          An optional insurance figure caps the displayed range.
+        */
+
+        const injuryBase =
+          medical +
+          futureMedical +
+          lostWages +
+          futureIncome;
+
+        const lowerBeforeFault =
+          economic +
+          (injuryBase *
+           painFactor *
+           injuryFactor *
+           0.45);
+
+        const upperBeforeFault =
+          economic +
+          (injuryBase *
+           painFactor *
+           injuryFactor *
+           1.15);
+
+        const faultMultiplier =
+          1 - (fault / 100);
+
+        let lower =
+          Math.max(
+            0,
+            lowerBeforeFault * faultMultiplier
+          );
+
+        let upper =
+          Math.max(
+            lower,
+            upperBeforeFault * faultMultiplier
+          );
+
+        if(coverage > 0){
+
+          lower = Math.min(lower,coverage);
+          upper = Math.min(upper,coverage);
+
+          if(upper < lower){
+            lower = upper;
+          }
+        }
+
+        output.range.textContent =
+          `${formatCurrency(lower)} – ${formatCurrency(upper)}`;
+
+        output.economic.textContent =
+          formatCurrency(economic);
+
+        output.fault.textContent =
+          `${fault}%`;
+
+        output.coverage.textContent =
+          coverage > 0
+            ? formatCurrency(coverage)
+            : "None";
+
+        output.box.classList.add("visible");
+
+        output.box.scrollIntoView({
+          behavior:"smooth",
+          block:"nearest"
+        });
+      }
+
+      function reset(){
+
+        Object.values(fields).forEach((field) => {
+
+          if(field.tagName === "SELECT"){
+            field.selectedIndex = 0;
+          }else{
+            field.value = "";
+          }
+
+        });
+
+        output.range.textContent = "$0 – $0";
+        output.economic.textContent = "$0";
+        output.fault.textContent = "0%";
+        output.coverage.textContent = "None";
+
+        output.box.classList.remove("visible");
+      }
+
+      calculateBtn.addEventListener("click",calculate);
+      resetBtn.addEventListener("click",reset);
+
+      Object.values(fields).forEach((field) => {
+
+        field.addEventListener("keydown",(event) => {
+
+          if(
+            event.key === "Enter" &&
+            field.tagName !== "SELECT"
+          ){
+            event.preventDefault();
+            calculate();
+          }
+
+        });
+
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
+​​
